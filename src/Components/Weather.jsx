@@ -1,4 +1,4 @@
-import "../Components/style/Weather.css"
+import "./Styles/Weather.css"
 import { useEffect, useState } from "react"
 
 // url = "https://api.openweathermap.org/data/2.5/weather?q=`${cityName}`,`${state}`,IN&appid=ffcb8213a4dc48de3ea875da61f207a5"
