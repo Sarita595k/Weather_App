@@ -1,6 +1,22 @@
 import "./Styles/Weather.css"
 import { useEffect, useState } from "react"
+import styled from "styled-components"
 
+const Container = styled.div`
+background: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/ebc4db2235034.560a96356930d.gif");
+ height: 100%;
+    width: 100%;
+    text-align: center;
+    border: 1px solid violet;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 10%;
+`
+
+const Heading = styled.h1`
+   margin-top: 7%;
+    text-transform: uppercase;
+    color: yellow;`
 // url = "https://api.openweathermap.org/data/2.5/weather?q=`${cityName}`,`${state}`,IN&appid=ffcb8213a4dc48de3ea875da61f207a5"
 export const Weather = () => {
     const cityDefaultValue = "Delhi"
@@ -39,8 +55,8 @@ export const Weather = () => {
         setSearchCity(cityName)
     }
     return (
-        <div className="container">
-            <h1>Weather forcast</h1>
+        <Container>
+            <Heading>Weather forcast</Heading>
             <h2 className="cityName">{cityName}</h2>
             <form className="weatherForm" onSubmit={handleSubmit}>
                 <input type="text" name="cityName" id="city" value={cityName} onChange={handleChange} autoComplete="false" />
@@ -63,6 +79,6 @@ export const Weather = () => {
                     </div>
                 </div>
             )}
-        </div >
+        </Container >
     )
 }
