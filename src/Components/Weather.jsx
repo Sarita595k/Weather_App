@@ -1,10 +1,10 @@
 import "./Styles/Weather.css"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
-
+import { WindowWidth } from "./WindowWidth"
 const Container = styled.div`
-background: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/ebc4db2235034.560a96356930d.gif");
- height: 100%;
+    background: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/ebc4db2235034.560a96356930d.gif");
+    height: 100vh;
     width: 100%;
     text-align: center;
     border: 1px solid violet;
@@ -23,6 +23,8 @@ export const Weather = () => {
     const [cityName, setCityName] = useState(cityDefaultValue)
     const [searchCity, setSearchCity] = useState(cityDefaultValue)
     const [temp, setTemp] = useState(null)
+
+
     const fetchData = async () => {
         try {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity},IN&appid=ffcb8213a4dc48de3ea875da61f207a5&units=metric`)
@@ -40,6 +42,7 @@ export const Weather = () => {
         }
     }
 
+
     useEffect(() => {
         if (searchCity) {
             fetchData()
@@ -56,6 +59,7 @@ export const Weather = () => {
     }
     return (
         <Container>
+            <WindowWidth />
             <Heading>Weather forcast</Heading>
             <h2 className="cityName">{cityName}</h2>
             <form className="weatherForm" onSubmit={handleSubmit}>
