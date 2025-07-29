@@ -9,6 +9,6 @@ export const WindowWidth = () => {
         window.addEventListener('resize', handleWidth)
     })
     return (<>
-        <h1>{width}</h1>
+        {/* <h1>{width}</h1> */}
     </>)
 }
