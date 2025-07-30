@@ -3,7 +3,7 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 const WeatherMap = () => {
-    const apiKey = "YOUR_API_KEY"; // Replace with your real key
+    const apiKey = "1544d6bac7513d160426b8754f63d524"; // Replace with your real key
 
     return (
         <MapContainer
