@@ -1,14 +1,16 @@
 import { Routes, Route } from "react-router-dom"
 import { Weather } from "./Components/Weather"
-import WeatherMap from "./Components/WeatherMap"
+import { WeatherMap } from "./Components/WeatherMap"
+import { Navbar } from "./Components/Navbar"
 const App = () => {
   return (
     <div>
       {/* <Weather /> */}
-      {/* <Routes>
-        <Route path="/" element={<Weather />} />
-      </Routes> */}
-      <WeatherMap />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<WeatherMap />} />
+      </Routes>
+      {/* <WeatherMap /> */}
     </div>
   )
 }

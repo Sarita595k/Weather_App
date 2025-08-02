@@ -1,31 +1,35 @@
-// src/components/WeatherMap.jsx
-import { MapContainer, TileLayer } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { useEffect } from "react"
+import styled from "styled-components";
 
-const WeatherMap = () => {
-    const apiKey = "1544d6bac7513d160426b8754f63d524"; // Replace with your real key
-
+const WeatherDiv = styled.div`
+position:absolute;
+width:100%;
+height:100vh;
+margin-top
+`
+export const WeatherMap = () => {
+    useEffect(() => {
+        if (window.windyInit) {
+            window.windyInit(
+                {
+                    key: "8gQny0PtgYbuOWH7DIc7vpw70DfvqePX", // your API key
+                    lat: 28.61,
+                    lon: 77.20,
+                    zoom: 5,
+                    layer: 'temp', // initial weather layer (e.g., 'wind', 'temp', 'rain')
+                },
+                function (windyAPI) {
+                    // This callback gives you access to Windy map controls and APIs
+                    const { map } = windyAPI;
+                    console.log("Windy map initialized", map);
+                }
+            );
+        } else {
+            console.log("error in fetching windy map key")
+        }
+    }, [])
     return (
-        <MapContainer
-            center={[20.5937, 78.9629]}
-            zoom={5}
-            scrollWheelZoom={true}
-            style={{ height: "100vh", width: "100%" }}
-        >
-            {/* Base map (OpenStreetMap) */}
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-            />
-
-            {/* Weather Overlay: Temperature Layer */}
-            <TileLayer
-                url={`https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`}
-                attribution='Weather data &copy; <a href="https://openweathermap.org/">OpenWeatherMap</a>'
-                opacity={0.6}
-            />
-        </MapContainer>
-    );
-};
-
-export default WeatherMap;
+        <WeatherDiv id="windy">
+        </WeatherDiv>
+    )
+}
