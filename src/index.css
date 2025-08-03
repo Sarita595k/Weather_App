@@ -1,0 +1,4 @@
+.class {
+    background-color: rgb(147, 83, 85);
+    background: linear-gradient(circle, rgba(74, 136, 153, 1) 0%, rgba(87, 155, 60, 1) 25%, rgb(62, 104, 163) 45%, rgb(57, 160, 57)65%, rgb(162, 117, 76) 85%, rgb(147, 83, 85) 100%);
+}

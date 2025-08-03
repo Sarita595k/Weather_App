@@ -3,20 +3,17 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { WindowWidth } from "./WindowWidth"
 const Container = styled.div`
-    background: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/ebc4db2235034.560a96356930d.gif");
-    height: 100vh;
+    height: max-content;
     width: 100%;
     text-align: center;
     border: 1px solid violet;
-    background-repeat: no-repeat;
-    background-size: cover;
     padding-bottom: 10%;
 `
 
-const Heading = styled.h1`
-   margin-top: 7%;
-    text-transform: uppercase;
-    color: yellow;`
+// const Heading = styled.h1`
+//    margin-top: 7%;
+//     text-transform: uppercase;
+//     color: yellow;`
 // url = "https://api.openweathermap.org/data/2.5/weather?q=`${cityName}`,`${state}`,IN&appid=ffcb8213a4dc48de3ea875da61f207a5"
 export const Weather = () => {
     const cityDefaultValue = "Delhi"
@@ -59,9 +56,8 @@ export const Weather = () => {
     }
     return (
         <Container>
-            <WindowWidth />
-            <Heading>Weather forcast</Heading>
-            <h2 className="cityName">{cityName}</h2>
+            {/* <WindowWidth /> */}
+            {/* <h2 className="cityName">{cityName}</h2> */}
             <form className="weatherForm" onSubmit={handleSubmit}>
                 <input type="text" name="cityName" id="city" value={cityName} onChange={handleChange} autoComplete="false" />
                 <br />
@@ -70,16 +66,16 @@ export const Weather = () => {
             {temp && temp.main && (
                 <div className="weatherDetails">
                     <div className="nameDetails">
-                        <h2>{temp.name}</h2>
+                        {/* <h2>{temp.name}</h2> */}
                         <h3>{temp.main.temp}°</h3>
                     </div>
                     <div className="details">
-                        <p>Feels like: {temp.main.feels_like} celsius</p>
+                        {/* <p>Feels like: {temp.main.feels_like} celsius</p>
                         <p>Min. temp: {temp.main.temp_min} celsius</p>
                         <p>Max. temp: {temp.main.temp_max} celsius</p>
                         <p>sunrise: {new Date(temp.sys.sunrise * 1000).toLocaleTimeString()}</p>
                         <p>sunset: {new Date(temp.sys.sunset * 1000).toLocaleTimeString()}</p>
-                        <p>Wind speed: {temp.wind.speed}</p>
+                        <p>Wind speed: {temp.wind.speed}</p> */}
                     </div>
                 </div>
             )}
