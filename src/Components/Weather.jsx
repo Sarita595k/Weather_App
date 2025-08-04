@@ -24,7 +24,7 @@ export const Weather = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity},IN&appid=ffcb8213a4dc48de3ea875da61f207a5&units=metric`)
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=ffcb8213a4dc48de3ea875da61f207a5&units=metric`)
             const data = await response.json()
             if (data.cod === 200) {
                 console.log(data)
