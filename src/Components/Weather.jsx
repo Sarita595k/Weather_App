@@ -2,6 +2,7 @@ import "./Styles/Weather.css"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { WindowWidth } from "./WindowWidth"
+import { WeatherDetails } from "./WeatherDetails"
 const Container = styled.div`
     height: max-content;
     width: 100%;
@@ -54,29 +55,39 @@ export const Weather = () => {
         event.preventDefault();
         setSearchCity(cityName)
     }
+
     return (
         <Container>
             {/* <WindowWidth /> */}
             {/* <h2 className="cityName">{cityName}</h2> */}
+
             <form className="weatherForm" onSubmit={handleSubmit}>
-                <input type="text" name="cityName" id="city" value={cityName} onChange={handleChange} autoComplete="false" />
+                <input type="text" name="cityName" id="city" value={cityName} onChange={handleChange} autoComplete="false" placeholder="Search Location" />
                 <br />
-                <button>submit</button>
+                <button style={{ cursor: "pointer" }}>submit</button>
             </form>
+
+            {/* fetchingthe weather data  */}
             {temp && temp.main && (
                 <div className="weatherDetails">
                     <div className="nameDetails">
                         {/* <h2>{temp.name}</h2> */}
                         <h3>{temp.main.temp}°</h3>
                     </div>
-                    <div className="details">
-                        {/* <p>Feels like: {temp.main.feels_like} celsius</p>
-                        <p>Min. temp: {temp.main.temp_min} celsius</p>
-                        <p>Max. temp: {temp.main.temp_max} celsius</p>
-                        <p>sunrise: {new Date(temp.sys.sunrise * 1000).toLocaleTimeString()}</p>
-                        <p>sunset: {new Date(temp.sys.sunset * 1000).toLocaleTimeString()}</p>
-                        <p>Wind speed: {temp.wind.speed}</p> */}
-                    </div>
+
+                    {/* passing data to weatherDetails components */}
+                    <WeatherDetails
+                        feelsLike={temp.main.feels_like}
+                        minTemp={temp.main.temp_min}
+                        maxTemp={temp.main.temp_max}
+                        sunrise={new Date(temp.sys.sunrise * 1000).toLocaleTimeString()}
+                        sunset={new Date(temp.sys.sunset * 1000).toLocaleTimeString()}
+                        windSpeed={temp.wind.speed}
+                        humidity={temp.main.humidity}
+                        visibility={temp.visibility}
+                        weatherDescription={temp.weather[0].description}
+                        icon={temp.weather[0].icon}
+                    />
                 </div>
             )}
         </Container >
