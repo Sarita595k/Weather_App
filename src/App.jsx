@@ -13,6 +13,7 @@ const App = () => {
         <Route path="/weather" element={<WeatherDetails />} />
       </Routes>
       {/* <WeatherMap /> */}
+      {/* small commit */}
     </div>
   )
 }
