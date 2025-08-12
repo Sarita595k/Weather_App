@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import { Weather } from "./Components/Weather"
+// import { Weather } from "./Components/Weather"
 import { WeatherMap } from "./Components/WeatherMap"
 import { Navbar } from "./Components/Navbar"
 import { WeatherDetails } from "./Components/WeatherDetails"

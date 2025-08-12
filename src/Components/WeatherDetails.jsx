@@ -6,6 +6,7 @@ export const WeatherDetails = (props) => {
             <h1>weather details</h1>
             <h1>Feels like: {props.feelsLike}</h1>
             <img src={iconUrl} alt="image" />
+
             <p>Weather description: {props.weatherDescription}</p>
         </div>
     )
