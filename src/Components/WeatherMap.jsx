@@ -18,11 +18,11 @@ z-index:1;
 `
 
 const SearchContainer = styled.div`
+width:100%;
 position:absolute;
 z-index:1000;
 top:10%;
-left:10%;
-background-color:grey;
+background-color:transparent;
 `
 export const WeatherMap = () => {
     useEffect(() => {
