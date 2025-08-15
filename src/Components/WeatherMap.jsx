@@ -54,3 +54,5 @@ export const WeatherMap = () => {
         </WeatherContainer>
     )
 }
+
+// end of code 
