@@ -6,9 +6,9 @@ import { WeatherDetails } from "./WeatherDetails"
 import { WeatherMap } from "./WeatherMap"
 
 const MainDiv = styled.div`
-width:70%;
-display:flex;
-justify-content:space-between;
+    width:70%;
+    display:flex;
+    justify-content:space-between;
 `
 const Container = styled.div`
     width: 40%;
@@ -40,8 +40,9 @@ export const Weather = () => {
     const [cityName, setCityName] = useState(cityDefaultValue)
     const [searchCity, setSearchCity] = useState(cityDefaultValue)
     const [temp, setTemp] = useState(null)
+    const [show, setShow] = useState(true)
 
-
+    // to fetch weather information
     const fetchData = async () => {
         try {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=ffcb8213a4dc48de3ea875da61f207a5&units=metric`)
@@ -60,6 +61,7 @@ export const Weather = () => {
     }
 
 
+    // to fetch the data according to the city and render after each search
     useEffect(() => {
         if (searchCity) {
             fetchData()
@@ -75,6 +77,11 @@ export const Weather = () => {
         setSearchCity(cityName)
     }
 
+    // handle the cross button 
+    const handleCrossBtn = () => {
+        setShow(prev => !prev)
+        console.log(show)
+    }
     return (
         <MainDiv>
             <form className="weatherForm" onSubmit={handleSubmit}>
@@ -83,7 +90,9 @@ export const Weather = () => {
                 <button style={{ cursor: "pointer" }}>submit</button>
             </form>
             <Container>
-                <CrossButton>X</CrossButton>
+                {show &&
+                    <CrossButton onClick={handleCrossBtn}>X</CrossButton>
+                }
                 {/* fetchingthe weather data  */}
                 {temp && temp.main && (
                     <div className="weatherDetails">

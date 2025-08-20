@@ -12,7 +12,7 @@ z-index:200;
 `
 export const Navbar = () => {
     return (<NavbarDiv>
-        <NavLink to="/">Home</NavLink>
+        {/* <NavLink to="/">Home</NavLink> */}
         {/* <NavLink to="/hourly">Hourly</NavLink> */}
         <NavLink to="weather">Weather</NavLink>
     </NavbarDiv>
